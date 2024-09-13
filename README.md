@@ -61,7 +61,7 @@ helm repo update
 ```
 
 2. Install PostgreSQL Helm Chart
-```
+```bash
 helm install my-postgresql udacity-bitnami/postgresql --set primary.persistence.enabled=false
 ```
 
@@ -91,4 +91,3 @@ kubectl apply -f .\project4-api.yaml
  ```
 
 For troubleshooting, logs from the container or application running as a Kubernetes pod are sent to a log group that can be accessed through AWS CloudWatch under Log Groups.
-Or using `kubectl logs project4-api-6458494c79-7thn6 --namespace default` to check log of pod.
