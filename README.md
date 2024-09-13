@@ -20,7 +20,6 @@ For this project, you are a DevOps engineer who will be collaborating with a tea
 4. AWS CloudWatch - monitor activity and logs in EKS
 5. GitHub - pull and clone code
 
-
 ### Deploying an analytics as a Microservice to Kubernetes using AWS:
 #### 1. Create a repository using AWS Elastic Container Registry (ERC)
 #### 2. Create build project using AWS CodeBuild
