@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: project4-api
+spec:
+  type: LoadBalancer
+  selector:
+    service: project4-api
+  ports:
+  - name: "5153"
+    protocol: TCP
+    port: 5153
+    targetPort: 5153
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project4-api
+  labels:
+    name: project4-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: project4-api
+  template:
+    metadata:
+      labels:
+        service: project4-api
+    spec:
+      containers:
+      - name: project4-api
+        image: 959209905965.dkr.ecr.us-east-1.amazonaws.com/udacity:0.0.1
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /health_check
+            port: 5153
+          initialDelaySeconds: 5
+          timeoutSeconds: 2
+        readinessProbe:
+          httpGet:
+            path: "/readiness_check"
+            port: 5153
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+        envFrom:
+          - secretRef:
+              name: my-postgres-db-password
+          - configMapRef:
+              name: my-postgres-db-configmap
+      restartPolicy: Always
