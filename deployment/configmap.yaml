@@ -14,4 +14,4 @@ metadata:
   name: my-postgres-db-password
 type: Opaque
 data:
-  DB_PASSWORD: Q1BaYWRaUFhvcQ==
+  DB_PASSWORD: VWc2U2oxQzU2bw==

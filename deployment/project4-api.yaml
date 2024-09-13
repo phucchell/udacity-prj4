@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: project4-api
-        image: 959209905965.dkr.ecr.us-east-1.amazonaws.com/udacity:0.0.1
+        image: 121004798845.dkr.ecr.us-east-1.amazonaws.com/udacity:0.0.1
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
